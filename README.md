@@ -30,13 +30,36 @@ _(Screenshots will be added here)_
 
 ### From Source
 
+#### Quick Installation
+
 1. Clone the repository:
 ```bash
 git clone https://github.com/igormilovanovic/gnomodoro.git
 cd gnomodoro
 ```
 
-2. Install dependencies:
+2. Run the installation script:
+```bash
+./install.sh
+```
+
+This will:
+- Install required system dependencies (on supported distributions)
+- Install Python dependencies
+- Create a desktop entry for easy launching
+
+3. Run the application:
+```bash
+python3 gnomodoro.py
+```
+
+Or search for "Gnomodoro" in your application menu.
+
+#### Manual Installation
+
+If the automatic installation doesn't work, follow these steps:
+
+1. Install system dependencies:
 ```bash
 # On Ubuntu/Debian
 sudo apt-get install python3-gi python3-gi-cairo gir1.2-gtk-3.0 gir1.2-notify-0.7
@@ -48,14 +71,26 @@ sudo dnf install python3-gobject gtk3 libnotify
 sudo pacman -S python-gobject gtk3 libnotify
 ```
 
-3. Install Python dependencies:
+2. Install Python dependencies:
 ```bash
 pip3 install -r requirements.txt
 ```
 
-4. Run the application:
+3. Run the application:
 ```bash
 python3 gnomodoro.py
+```
+
+#### Uninstallation
+
+To uninstall Gnomodoro:
+```bash
+./uninstall.sh
+```
+
+To also remove your settings and data:
+```bash
+rm -rf ~/.config/gnomodoro ~/.local/share/gnomodoro
 ```
 
 ### Using Flatpak (Recommended)
