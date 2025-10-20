@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Gnomodoro
+GenericName=Pomodoro Timer
+Comment=A simple Pomodoro timer for GNOME
+Exec=gnomodoro
+Icon=com.github.igormilovanovic.gnomodoro
+Terminal=false
+Type=Application
+Categories=GTK;GNOME;Utility;Office;
+Keywords=pomodoro;timer;productivity;time;management;
+StartupNotify=true

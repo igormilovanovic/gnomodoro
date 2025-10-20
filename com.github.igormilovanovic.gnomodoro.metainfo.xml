@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.github.igormilovanovic.gnomodoro</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <name>Gnomodoro</name>
+  <summary>A simple Pomodoro timer for GNOME</summary>
+  
+  <description>
+    <p>
+      Gnomodoro is a simple and elegant Pomodoro timer application designed for the GNOME desktop environment.
+      It helps you manage your time using the Pomodoro Technique, which breaks work into intervals separated by short breaks.
+    </p>
+    <p>Features:</p>
+    <ul>
+      <li>Customizable work and break intervals</li>
+      <li>Desktop notifications when sessions complete</li>
+      <li>Task management to track what you're working on</li>
+      <li>Statistics to visualize your productivity</li>
+      <li>Light and dark theme support</li>
+      <li>Clean and intuitive user interface</li>
+    </ul>
+  </description>
+  
+  <launchable type="desktop-id">com.github.igormilovanovic.gnomodoro.desktop</launchable>
+  
+  <url type="homepage">https://github.com/igormilovanovic/gnomodoro</url>
+  <url type="bugtracker">https://github.com/igormilovanovic/gnomodoro/issues</url>
+  
+  <developer_name>Igor Milovanovic</developer_name>
+  
+  <screenshots>
+    <screenshot type="default">
+      <caption>Main window with timer</caption>
+    </screenshot>
+  </screenshots>
+  
+  <categories>
+    <category>Utility</category>
+    <category>Office</category>
+  </categories>
+  
+  <releases>
+    <release version="1.0.0" date="2025-01-01">
+      <description>
+        <p>Initial release</p>
+        <ul>
+          <li>Pomodoro timer with customizable durations</li>
+          <li>Desktop notifications</li>
+          <li>Task management</li>
+          <li>Statistics tracking</li>
+          <li>Theme support</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+  
+  <content_rating type="oars-1.1" />
+</component>
