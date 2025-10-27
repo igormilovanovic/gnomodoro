@@ -1,0 +1,25 @@
+app-id: com.github.igormilovanovic.gnomodoro
+runtime: org.gnome.Platform
+runtime-version: '45'
+sdk: org.gnome.Sdk
+command: gnomodoro
+
+finish-args:
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --device=dri
+  - --talk-name=org.freedesktop.Notifications
+
+modules:
+  - name: gnomodoro
+    buildsystem: simple
+    build-commands:
+      - install -D gnomodoro.py /app/bin/gnomodoro
+      - cp -r gnomodoro /app/lib/python3.11/site-packages/
+      - install -D assets/icons/gnomodoro.svg /app/share/icons/hicolor/scalable/apps/com.github.igormilovanovic.gnomodoro.svg
+      - install -D com.github.igormilovanovic.gnomodoro.desktop /app/share/applications/com.github.igormilovanovic.gnomodoro.desktop
+      - install -D com.github.igormilovanovic.gnomodoro.metainfo.xml /app/share/metainfo/com.github.igormilovanovic.gnomodoro.metainfo.xml
+    sources:
+      - type: dir
+        path: .
