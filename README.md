@@ -28,6 +28,73 @@ _(Screenshots will be added here)_
 - PyGObject
 - Libnotify
 
+### Recommended: Using pipx
+
+The easiest way to install Gnomodoro is using [pipx](https://pypa.github.io/pipx/), which installs Python applications in isolated environments:
+
+```bash
+# Install pipx if you don't have it
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+
+# Install Gnomodoro
+pipx install gnomodoro
+```
+
+Then run:
+```bash
+gnomodoro
+```
+
+#### Upgrading with pipx
+
+```bash
+pipx upgrade gnomodoro
+```
+
+#### Uninstalling with pipx
+
+```bash
+pipx uninstall gnomodoro
+```
+
+### Using pip
+
+You can also install Gnomodoro system-wide or in a virtual environment using pip:
+
+```bash
+pip install gnomodoro
+```
+
+**Note**: System dependencies (GTK+, PyGObject, Libnotify) must be installed separately. See [Manual Installation](#manual-installation) for distribution-specific instructions.
+
+### Using Flatpak (Recommended for Sandboxed Installation)
+
+Flatpak provides a sandboxed installation that includes all dependencies:
+
+```bash
+# Add Flathub repository (if not already added)
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+# Install Gnomodoro
+flatpak install flathub com.github.igormilovanovic.gnomodoro
+```
+
+Run with:
+```bash
+flatpak run com.github.igormilovanovic.gnomodoro
+```
+
+**Note**: Flatpak submission to Flathub is planned. Until then, you can build from source using the Flatpak manifest.
+
+#### Building Flatpak from Source
+
+```bash
+git clone https://github.com/igormilovanovic/gnomodoro.git
+cd gnomodoro
+flatpak-builder --user --install --force-clean build-dir com.github.igormilovanovic.gnomodoro.yml
+```
+
 ### From Source
 
 #### Quick Installation
@@ -81,21 +148,27 @@ pip3 install -r requirements.txt
 python3 gnomodoro.py
 ```
 
+#### Development Installation
+
+For development, install in editable mode:
+
+```bash
+git clone https://github.com/igormilovanovic/gnomodoro.git
+cd gnomodoro
+pip install -e .
+```
+
 #### Uninstallation
 
-To uninstall Gnomodoro:
+If installed from source:
 ```bash
 ./uninstall.sh
 ```
 
-To also remove your settings and data:
+To remove your settings and data:
 ```bash
 rm -rf ~/.config/gnomodoro ~/.local/share/gnomodoro
 ```
-
-### Using Flatpak (Recommended)
-
-_(Coming soon)_
 
 ## Usage
 

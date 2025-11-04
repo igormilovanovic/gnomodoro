@@ -127,6 +127,124 @@ Add task priority feature
 Fixes #123
 ```
 
+## Versioning and Releases
+
+Gnomodoro follows [Semantic Versioning](https://semver.org/) (SemVer):
+
+### Version Format: `vX.Y.Z`
+
+- **Major (X)**: Breaking changes that are not backward compatible
+- **Minor (Y)**: New features that are backward compatible
+- **Patch (Z)**: Bug fixes and minor improvements that are backward compatible
+
+Examples:
+- `v1.0.0` - Initial stable release
+- `v1.1.0` - New features added (e.g., new theme, export functionality)
+- `v1.1.1` - Bug fixes (e.g., notification crash fix)
+- `v2.0.0` - Breaking changes (e.g., settings file format change)
+
+### Single Source of Truth
+
+The version number is defined in `setup.py` and should be updated there:
+
+```python
+setup(
+    name="gnomodoro",
+    version="1.0.0",  # Update this for new releases
+    # ...
+)
+```
+
+### Release Process (For Maintainers)
+
+1. **Update Version**
+   - Edit `setup.py` and update the version number
+   - Follow semantic versioning guidelines
+
+2. **Update CHANGELOG.md**
+   - Move items from `[Unreleased]` to new version section
+   - Add release date
+   - Update version comparison links at bottom
+
+3. **Commit Changes**
+   ```bash
+   git add setup.py CHANGELOG.md
+   git commit -m "Bump version to vX.Y.Z"
+   ```
+
+4. **Create Git Tag**
+   ```bash
+   git tag -a vX.Y.Z -m "Release version X.Y.Z"
+   git push origin vX.Y.Z
+   ```
+
+5. **Create GitHub Release**
+   - Go to GitHub Releases page
+   - Click "Draft a new release"
+   - Select the tag you just created
+   - Use the release announcement template from `RELEASE_ANNOUNCEMENT.md`
+   - Attach any release artifacts if applicable
+
+6. **Publish to PyPI** (requires maintainer credentials)
+   ```bash
+   # Build distribution packages
+   python3 -m pip install --upgrade build twine
+   python3 -m build
+   
+   # Upload to PyPI
+   python3 -m twine upload dist/*
+   ```
+
+7. **Update Flathub** (if applicable)
+   - Update Flatpak manifest if needed
+   - Submit to Flathub repository
+   - Follow Flathub submission guidelines
+
+8. **Announce Release**
+   - Post release announcement on GitHub
+   - Share on social media (Twitter, Mastodon, Reddit)
+   - Update project website/documentation
+
+### Release Cadence
+
+- **Major releases**: When breaking changes are necessary
+- **Minor releases**: Every 2-3 months or when significant features are ready
+- **Patch releases**: As needed for bug fixes, typically within days/weeks of bug discovery
+
+### Pre-release Versions
+
+For pre-release versions, use these suffixes:
+- `vX.Y.Z-alpha.N` - Alpha releases (feature incomplete, unstable)
+- `vX.Y.Z-beta.N` - Beta releases (feature complete, testing phase)
+- `vX.Y.Z-rc.N` - Release candidates (ready for release, final testing)
+
+Example: `v1.1.0-beta.1`
+
+## Changelog Guidelines
+
+Keep the CHANGELOG.md updated with all notable changes:
+
+### Categories
+- **Added**: New features
+- **Changed**: Changes in existing functionality
+- **Deprecated**: Soon-to-be removed features
+- **Removed**: Removed features
+- **Fixed**: Bug fixes
+- **Security**: Security improvements
+
+### Format
+```markdown
+## [X.Y.Z] - YYYY-MM-DD
+
+### Added
+- New feature description (#PR_number)
+
+### Fixed
+- Bug fix description (#PR_number)
+```
+
+Always link to relevant pull requests or issues.
+
 ## Questions?
 
 If you have questions, feel free to:
