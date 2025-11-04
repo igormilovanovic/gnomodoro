@@ -150,17 +150,22 @@ You'll be prompted for:
 
 ### Initial Flathub Submission
 
-1. **Fork the Flathub repository**
-   ```bash
-   git clone https://github.com/flathub/flathub.git
-   cd flathub
-   ```
+1. **Request a new repository**
+   - Each application gets its own repository in the Flathub organization
+   - Repository name will be: `flathub/com.github.igormilovanovic.gnomodoro`
+   - Follow the [Flathub app submission guide](https://github.com/flathub/flathub/wiki/App-Submission)
 
-2. **Create application repository**
-   - Repository name: `com.github.igormilovanovic.gnomodoro`
-   - Copy your manifest file
+2. **Prepare your application repository**
+   - Clone the newly created repository
+   ```bash
+   git clone https://github.com/flathub/com.github.igormilovanovic.gnomodoro.git
+   cd com.github.igormilovanovic.gnomodoro
+   ```
+   - Add your manifest and metadata files
 
 3. **Prepare Flatpak manifest**
+   
+   Create these files in the repository:
    
    File: `com.github.igormilovanovic.gnomodoro.yml`
    ```yaml
@@ -204,10 +209,15 @@ You'll be prompted for:
    ```
 
 6. **Submit to Flathub**
-   - Create a new repository on Flathub organization
-   - Push your manifest
-   - Open a pull request
-   - Wait for review and approval
+   - Commit your manifest files to the repository
+   ```bash
+   git add .
+   git commit -m "Initial submission of Gnomodoro"
+   git push origin master
+   ```
+   - Create a pull request to the `flathub/flathub` repository's app-submissions branch
+   - Fill out the submission template
+   - Wait for review and approval by Flathub maintainers
 
 ### Updating Existing Flathub Package
 
@@ -477,4 +487,4 @@ git push && git push --tags
 
 ---
 
-**Last Updated**: November 2025
+**Last Updated**: January 2025

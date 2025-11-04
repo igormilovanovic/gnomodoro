@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CHANGELOG.md to track version changes
 - RELEASE_ANNOUNCEMENT.md template for maintainers
 
-## [1.0.0] - 2025-01-XX
+## [1.0.0] - TBD
 
 ### Added
 - Core Pomodoro timer functionality with customizable durations
