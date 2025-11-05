@@ -22,7 +22,7 @@ The workflow tests the code against multiple Python versions:
 - Python 3.11
 - Python 3.12
 
-**Note**: While `setup.py` declares compatibility with Python 3.8+, the CI pipeline focuses on Python 3.9+ as these are the actively maintained and tested versions. Python 3.8 reached end-of-life in October 2024.
+**Note**: The project requires Python 3.9 or higher. These are the actively maintained and tested versions. Python 3.8 reached end-of-life in October 2024.
 
 #### Jobs
 

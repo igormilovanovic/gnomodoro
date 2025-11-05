@@ -3,7 +3,7 @@
 A simple and elegant Pomodoro timer application for the GNOME desktop environment.
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
+![Python](https://img.shields.io/badge/python-3.9+-blue.svg)
 [![Test and Lint](https://github.com/igormilovanovic/gnomodoro/actions/workflows/test-lint.yml/badge.svg)](https://github.com/igormilovanovic/gnomodoro/actions/workflows/test-lint.yml)
 
 ## Features
