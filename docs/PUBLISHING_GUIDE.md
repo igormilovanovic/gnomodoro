@@ -412,36 +412,60 @@ Use templates from `RELEASE_ANNOUNCEMENT.md`:
 
 ---
 
-## Automation (Future Enhancement)
+## Automated Release Workflows
 
-Consider setting up GitHub Actions for automated releases:
+The project now includes automated GitHub Actions workflows for releases:
 
-**.github/workflows/release.yml** (example)
-```yaml
-name: Release
+### Available Workflows
 
-on:
-  push:
-    tags:
-      - 'v*'
+1. **publish-python.yml** - Automatically builds and publishes to PyPI, creates GitHub releases
+   - Triggers on tag push (e.g., `v1.0.0`, `v1.2.3`)
+   - Builds source distribution and wheel
+   - Uploads to PyPI using `PYPI_API_TOKEN` secret
+   - Creates GitHub Release with artifacts
+   - Extracts release notes from CHANGELOG.md
 
-jobs:
-  pypi-publish:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-      - name: Build package
-        run: |
-          python -m pip install --upgrade build
-          python -m build
-      - name: Publish to PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          password: ${{ secrets.PYPI_API_TOKEN }}
+2. **flatpak-build.yml** - Builds Flatpak bundles for distribution
+   - Triggers on tag push or manual dispatch
+   - Builds Flatpak bundle
+   - Uploads as artifact to GitHub
+   - Attaches to GitHub Release when triggered by tag
+
+### Setup Instructions
+
+See [.github/RELEASE_WORKFLOW_SETUP.md](../.github/RELEASE_WORKFLOW_SETUP.md) for detailed setup instructions including:
+- How to generate and configure PyPI API tokens
+- How to trigger automated releases
+- Troubleshooting common issues
+- Testing workflows before production use
+
+### Using Automated Releases
+
+Once configured, releases are simple:
+
+```bash
+# 1. Update version in setup.py and CHANGELOG.md
+# 2. Commit changes
+git add setup.py CHANGELOG.md
+git commit -m "Bump version to v1.1.0"
+git push origin main
+
+# 3. Create and push tag
+git tag -a v1.1.0 -m "Release version 1.1.0"
+git push origin v1.1.0
+
+# 4. Workflows automatically:
+#    - Build distributions
+#    - Publish to PyPI
+#    - Create GitHub Release
+#    - Build Flatpak bundle
 ```
+
+For release notes templates and best practices, see [.github/RELEASE_NOTES_TEMPLATE.md](../.github/RELEASE_NOTES_TEMPLATE.md).
+
+### Manual Release (Alternative)
+
+You can still release manually if preferred. Follow the steps in the sections above for PyPI and GitHub releases.
 
 ---
 
