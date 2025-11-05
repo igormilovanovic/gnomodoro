@@ -50,7 +50,8 @@ jobs:
         # Extract release notes from CHANGELOG.md if available
         if [ -f CHANGELOG.md ]; then
           # Try to extract the section for this version
-          NOTES=$(awk "/## \[$VERSION\]/,/## \[/" CHANGELOG.md | sed '1d;$d' | sed '/^$/d')
+          # Handle both middle sections and last section
+          NOTES=$(awk "/## \[$VERSION\]/{flag=1; next} /## \[/{flag=0} flag" CHANGELOG.md | sed '/^$/d')
           if [ -z "$NOTES" ]; then
             NOTES="Release $TAG_NAME"
           fi
