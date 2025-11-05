@@ -215,7 +215,7 @@ You'll be prompted for:
    ```bash
    git add .
    git commit -m "Initial submission of Gnomodoro"
-   git push origin master
+   git push origin main
    ```
    - Create a pull request to the `flathub/flathub` repository's app-submissions branch
    - Fill out the submission template
@@ -241,7 +241,7 @@ You'll be prompted for:
    ```bash
    git add com.github.igormilovanovic.gnomodoro.yml
    git commit -m "Update to version 1.2.0"
-   git push origin master
+   git push origin main
    ```
 
 4. **Flathub will automatically build and publish** (after review)

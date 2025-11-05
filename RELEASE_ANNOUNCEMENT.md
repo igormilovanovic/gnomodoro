@@ -265,4 +265,4 @@ Before announcing a release, ensure:
 7. **Link to Details**: Always link to full changelog and documentation
 8. **Test Installation Commands**: Verify all installation instructions work
 9. **Proofread**: Check for typos and formatting issues
-10. **Timing**: Announce releases during peak community activity times
+10. **Timing**: Announce releases during peak community activity times.
