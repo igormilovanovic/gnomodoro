@@ -171,6 +171,8 @@ You'll be prompted for:
    ```yaml
    app-id: com.github.igormilovanovic.gnomodoro
    runtime: org.gnome.Platform
+   # Use the latest stable GNOME runtime version. At the time of publication, '45' was current.
+   # Before publishing, check https://flathub.org/docs/for-app-authors.html for the latest stable version.
    runtime-version: '45'
    sdk: org.gnome.Sdk
    command: gnomodoro
