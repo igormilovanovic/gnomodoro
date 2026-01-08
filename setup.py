@@ -19,7 +19,7 @@ setup(
     url="https://github.com/igormilovanovic/gnomodoro",
     packages=find_packages(),
     install_requires=[
-        "PyGObject>=3.42.0",
+        "PyGObject>=3.42.0,<3.48.0",
         "pycairo>=1.20.0",
     ],
     python_requires=">=3.9",
