@@ -1,0 +1,45 @@
+name: Build Flatpak
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  flatpak-build:
+    name: Build Flatpak bundle
+    runs-on: ubuntu-latest
+    container:
+      image: bilelmoussaoui/flatpak-github-actions:gnome-45
+      options: --privileged
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Build Flatpak
+      uses: flatpak/flatpak-github-actions/flatpak-builder@v6
+      with:
+        bundle: gnomodoro.flatpak
+        # Manifest path follows Flatpak naming convention: {app-id}.yml
+        manifest-path: com.github.igormilovanovic.gnomodoro.yml
+        cache-key: flatpak-builder-${{ github.sha }}
+        
+    - name: Upload Flatpak bundle as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: flatpak-bundle
+        path: gnomodoro.flatpak
+        retention-days: 30
+        
+    - name: Attach to Release
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v1
+      with:
+        files: gnomodoro.flatpak
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
