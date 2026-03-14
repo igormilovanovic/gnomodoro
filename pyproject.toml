@@ -1,0 +1,26 @@
+[tool.black]
+line-length = 127
+target-version = ['py39', 'py310', 'py311', 'py312']
+extend-exclude = '''
+/(
+  # directories
+  \.git
+  | __pycache__
+  | build
+  | dist
+  | \.egg-info
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 127
+skip_gitignore = true
+extend_skip = [".git", "__pycache__", "build", "dist"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
